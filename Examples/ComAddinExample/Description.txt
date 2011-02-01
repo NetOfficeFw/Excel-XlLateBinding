@@ -1,0 +1,3 @@
+﻿This example shows you a simple COMAddin that is using LateBindingApi.Excel
+to get an easy versionless access and create a sample ribbon UI.
+see example9 how create a UI in older excel versions.

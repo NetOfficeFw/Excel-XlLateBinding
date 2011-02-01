@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--xsi:noNamespaceSchemaLocation="LateBindingApi.CodeGenerator.Document.xsd" -->
+<!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" -->
+<LateBindingApi.CodeGenerator.Document LateBindingApi.CodeGenerator.Version="LateBindingApi.CodeGenerator.Version1">
+  <Components>
+    <Component>
+      <Name>Name1</Name>
+      <ContainingFile>ContainingFile1</ContainingFile>
+      <Key>Key1</Key>
+      <GUID>GUID1</GUID>
+      <HelpFile>HelpFile1</HelpFile>
+      <MajorVersion>0</MajorVersion>
+      <MinorVersion>0</MinorVersion>
+      <LCID>0</LCID>
+      <Description>Description1</Description>
+      <Version>Version1</Version>
+      <SysKind>0</SysKind>
+    </Component>
+  </Components>
+  <Externals>
+    <External Name="Name1" Prefix="Prefix1" Namespace="Namespace1" Key="Key1">
+      <ExternalComponent>
+        <ContainingFile>ContainingFile1</ContainingFile>
+        <Key>Key1</Key>
+        <GUID>GUID1</GUID>
+        <HelpFile>HelpFile1</HelpFile>
+        <MajorVersion>0</MajorVersion>
+        <MinorVersion>0</MinorVersion>
+        <LCID>0</LCID>
+        <Description>Description1</Description>
+        <Version>Version1</Version>
+        <SysKind>0</SysKind>
+      </ExternalComponent>
+    </External>
+  </Externals>
+  <Solution Name="SolutionName1" Prefix="Prefix1">
+    <Project Name="Name1" ProjectName="ProjectName1" Namespace="Namespace1">
+      <Enums>
+        <Enum Name="Name1">
+          <Components>
+            <Component>Key1</Component>
+          </Components>
+          <Members>
+            <EnumMember Name="Name1" Value="1">
+              <Components>
+                <Component>Key1</Component>
+              </Components>
+            </EnumMember>
+            <EnumMember Name="Name2" Value="-128">
+              <Components>
+                <Component>Key1</Component>
+              </Components>
+            </EnumMember>
+            <EnumMember Name="Name3" Value="127">
+              <Components>
+                <Component>Key1</Component>
+              </Components>
+            </EnumMember>
+          </Members>
+        </Enum>
+        <Enum Name="Name2">
+          <Components>
+            <Component>Key1</Component>
+          </Components>
+          <Members>
+            <EnumMember Name="Name4" Value="0">
+              <Components>
+                <Component>Key1</Component>
+              </Components>
+            </EnumMember>
+            <EnumMember Name="Name5" Value="2">
+              <Components>
+                <Component>Key1</Component>
+              </Components>
+            </EnumMember>
+            <EnumMember Name="Name6" Value="-127">
+              <Components>
+                <Component>Key1</Component>
+              </Components>
+            </EnumMember>
+          </Members>
+        </Enum>
+        <Enum Name="Name3">
+          <Components>
+            <Component>Key1</Component>
+          </Components>
+          <Members>
+            <EnumMember Name="Name7" Value="126">
+              <Components>
+                <Component>Key1</Component>
+              </Components>
+            </EnumMember>
+            <EnumMember Name="Name8" Value="-1">
+              <Components>
+                <Component>Key1</Component>
+              </Components>
+            </EnumMember>
+            <EnumMember Name="Name9" Value="3">
+              <Components>
+                <Component>Key1</Component>
+              </Components>
+            </EnumMember>
+          </Members>
+        </Enum>
+      </Enums>
+      <CoClasses>
+        <CoClass Name="Name1" Name2="Name21" GUID="GUID1">
+          <Components>
+            <Component>Key1</Component>
+            <Component>Key1</Component>
+            <Component>Key1</Component>
+          </Components>
+          <Methods>
+            <Method Name="Name1" Name2="Name21">
+              <DispatchIds>
+                <DispatchId Id="Id1" ComponentKey="ComponentKey1" />
+              </DispatchIds>
+              <ReturnValue IsComProxy="true" IsExternal="true" IsArray="true" Type="Type1" TypeKind="TypeKind1" Key="Key1" />
+              <Parameters>
+                <Parameter IsComProxy="true" IsExternal="true" IsRef="true" IsArray="true" IsOptional="true" Type="Type1" TypeKind="TypeKind1" Key="Key1" />
+              </Parameters>
+              <Components>
+                <Component>Key1</Component>
+              </Components>
+            </Method>
+          </Methods>
+          <Properties>
+            <Property Name="Name1" Name2="Name21">
+              <DispatchIds>
+                <DispatchId Id="Id1" ComponentKey="ComponentKey1" />
+              </DispatchIds>
+              <ReturnValue InvokeKind="InvokeKind1" IsComProxy="true" IsExternal="true" IsArray="true" Type="Type1" TypeKind="TypeKind1" Key="Key1" />
+              <Parameters>
+                <Parameter IsComProxy="true" IsExternal="true" IsRef="true" IsArray="true" IsOptional="true" Type="Type1" TypeKind="TypeKind1" Key="Key1" />
+              </Parameters>
+              <Components>
+                <Component>Key1</Component>
+              </Components>
+            </Property>
+          </Properties>
+          <Bases>
+            <Base Name="Name1">Base1</Base>
+          </Bases>
+          <EventInterface Name="Name1" />
+        </CoClass>
+      </CoClasses>
+      <Interfaces>
+        <Interface Name="Name1" Name2="Name21" GUID="GUID1">
+          <Components>
+            <Component>Key1</Component>
+            <Component>Key1</Component>
+            <Component>Key1</Component>
+          </Components>
+          <Methods>
+            <Method Name="Name1" Name2="Name21">
+              <DispatchIds>
+                <DispatchId Id="Id1" ComponentKey="ComponentKey1" />
+              </DispatchIds>
+              <ReturnValue IsComProxy="true" IsExternal="true" IsArray="true" Type="Type1" TypeKind="TypeKind1" Key="Key1" />
+              <Parameters>
+                <Parameter IsComProxy="true" IsExternal="true" IsRef="true" IsArray="true" IsOptional="true" Type="Type1" TypeKind="TypeKind1" Key="Key1" />
+              </Parameters>
+              <Components>
+                <Component>Key1</Component>
+              </Components>
+            </Method>
+          </Methods>
+          <Properties>
+            <Property Name="Name1" Name2="Name21">
+              <DispatchIds>
+                <DispatchId Id="Id1" ComponentKey="ComponentKey1" />
+              </DispatchIds>
+              <ReturnValue InvokeKind="InvokeKind1" IsComProxy="true" IsExternal="true" IsArray="true" Type="Type1" TypeKind="TypeKind1" Key="Key1" />
+              <Parameters>
+                <Parameter IsComProxy="true" IsExternal="true" IsRef="true" IsArray="true" IsOptional="true" Type="Type1" TypeKind="TypeKind1" Key="Key1" />
+              </Parameters>
+              <Components>
+                <Component>Key1</Component>
+              </Components>
+            </Property>
+          </Properties>
+          <Bases>
+            <Base Name="Name1">Base1</Base>
+          </Bases>
+        </Interface>
+      </Interfaces>
+      <DispatchInterfaces>
+        <Dispatch Name="Name1" Name2="Name21" GUID="GUID1">
+          <Components>
+            <Component>Key1</Component>
+            <Component>Key1</Component>
+            <Component>Key1</Component>
+          </Components>
+          <Methods>
+            <Method Name="Name1" Name2="Name21">
+              <DispatchIds>
+                <DispatchId Id="Id1" ComponentKey="ComponentKey1" />
+              </DispatchIds>
+              <ReturnValue HasReturnValue ="true" IsComProxy="true" IsExternal="false" IsArray="false" Type="Worksheet" TypeKind="TypeKind1" Key="Key1" />
+              <Parameters>
+                <Parameter IsComProxy="true" IsExternal="true" IsRef="true" IsArray="true" IsOptional="true" Type="Type1" TypeKind="TypeKind1" Key="Key1" />
+              </Parameters>
+              <Components>
+                <Component>Key1</Component>
+              </Components>
+            </Method>
+          </Methods>
+          <Properties>
+            <Property Name="Name1" Name2="Name21">
+              <DispatchIds>
+                <DispatchId Id="Id1" ComponentKey="ComponentKey1" />
+              </DispatchIds>
+              <ReturnValue InvokeKind="InvokeKind1" IsComProxy="true" IsExternal="true" IsArray="true" Type="Type1" TypeKind="TypeKind1" Key="Key1" />
+              <Parameters>
+                <Parameter IsComProxy="true" IsExternal="true" IsRef="true" IsArray="true" IsOptional="true" Type="Type1" TypeKind="TypeKind1" Key="Key1" />
+              </Parameters>
+              <Components>
+                <Component>Key1</Component>
+              </Components>
+            </Property>
+          </Properties>
+          <Bases>
+            <Base Name="Name1">Base1</Base>
+          </Bases>
+        </Dispatch>
+      </DispatchInterfaces>
+      <Components>
+        <Component>Key1</Component>
+        <Component>Key1</Component>
+        <Component>Key1</Component>
+      </Components>
+    </Project>
+  </Solution>
+</LateBindingApi.CodeGenerator.Document>

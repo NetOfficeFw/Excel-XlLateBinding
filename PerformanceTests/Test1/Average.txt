@@ -1,0 +1,4 @@
+DynamicObjects.log : 00:00:19.4500000
+Interop.log : 00:00:07.0500000
+LateBinding.log : 00:00:07
+OfficeForNet.log : 00:00:07

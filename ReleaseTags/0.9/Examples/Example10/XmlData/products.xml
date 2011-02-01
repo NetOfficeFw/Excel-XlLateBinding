@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<items>
+  <item>
+    <iName>PowerAmplifier</iName>
+    <iProductId>21221</iProductId>
+    <iStorageCount>730</iStorageCount>
+    <iManufactorAmount>245,39</iManufactorAmount>    
+  </item>
+  <item>
+    <iName>ChorusDelay</iName>
+    <iProductId>16602</iProductId>
+    <iStorageCount>311</iStorageCount>
+    <iManufactorAmount>11,39</iManufactorAmount>
+  </item>
+  <item>
+    <iName>SpeakerCable</iName>
+    <iProductId>12830</iProductId>
+    <iStorageCount>130</iStorageCount>
+    <iManufactorAmount>2,39</iManufactorAmount>
+  </item>
+  <item>
+    <iName>TubeSet</iName>
+    <iProductId>53108</iProductId>
+    <iStorageCount>370</iStorageCount>
+    <iManufactorAmount>37,39</iManufactorAmount>
+  </item>
+  <item>
+    <iName>Distortion</iName>
+    <iProductId>52822</iProductId>
+    <iStorageCount>911</iStorageCount>
+    <iManufactorAmount>14,39</iManufactorAmount>
+  </item>
+  <item>
+    <iName>SilentScreamer</iName>
+    <iProductId>22521</iProductId>
+    <iStorageCount>51</iStorageCount>
+    <iManufactorAmount>45,39</iManufactorAmount>
+  </item>
+ <item>
+   <iName>Strings Standard</iName>
+   <iProductId>22476</iProductId>
+   <iStorageCount>134</iStorageCount>
+   <iManufactorAmount>1,59</iManufactorAmount>
+ </item>
+ <item>
+   <iName>Strings Premium</iName>
+   <iProductId>22477</iProductId>
+   <iStorageCount>321</iStorageCount>
+   <iManufactorAmount>2,29</iManufactorAmount>
+ </item>
+<item>
+    <iName>EasyDrumSticks</iName>
+    <iProductId>48319</iProductId>
+    <iStorageCount>280</iStorageCount>
+    <iManufactorAmount>5,29</iManufactorAmount>
+</item>
+ <item>
+   <iName>WildWah</iName>
+   <iProductId>90321</iProductId>
+   <iStorageCount>198</iStorageCount>
+   <iManufactorAmount>55,69</iManufactorAmount>
+ </item>
+</items>

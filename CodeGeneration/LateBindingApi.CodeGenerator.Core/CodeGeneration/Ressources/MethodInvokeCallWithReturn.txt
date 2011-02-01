@@ -1,0 +1,2 @@
+﻿			object returnValue = Invoker.MethodReturn(this, "%Name%", %paramArray%);
+			return (%ReturnType%)returnValue;

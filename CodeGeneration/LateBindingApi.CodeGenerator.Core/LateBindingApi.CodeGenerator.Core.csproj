@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CA3E99F4-3630-44E6-ACD1-D9D63E7E09E8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LateBindingApi.CodeGenerator.Core</RootNamespace>
+    <AssemblyName>LateBindingApi.CodeGenerator.Core</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="COMComponentReader.cs" />
+    <Compile Include="ItemFilter.cs" />
+    <Compile Include="MethodHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyHandler.cs" />
+    <Compile Include="Registry\TypeLibRegistry.cs" />
+    <Compile Include="Registry\TypeLibRegistryEntries.cs" />
+    <Compile Include="Registry\TypeLibRegistryEntry.cs" />
+    <Compile Include="Registry\TypeLibRegistryKey.cs" />
+    <Compile Include="Registry\TypeLibRegistryKeys.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="Visual\AttributesGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visual\AttributesGrid.Designer.cs">
+      <DependentUpon>AttributesGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\ChildAttributesGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visual\ChildAttributesGrid.Designer.cs">
+      <DependentUpon>ChildAttributesGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\ComponentTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visual\ComponentTab.Designer.cs">
+      <DependentUpon>ComponentTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\ComponentTreeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visual\ComponentTreeView.Designer.cs">
+      <DependentUpon>ComponentTreeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\EnumGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visual\EnumGrid.Designer.cs">
+      <DependentUpon>EnumGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\EventsGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visual\EventsGrid.Designer.cs">
+      <DependentUpon>EventsGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\FormDependencies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visual\FormDependencies.Designer.cs">
+      <DependentUpon>FormDependencies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\FormEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visual\FormEdit.designer.cs">
+      <DependentUpon>FormEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\FormResolveMethodConflict.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visual\FormResolveMethodConflict.Designer.cs">
+      <DependentUpon>FormResolveMethodConflict.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\FormTypeLibBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visual\FormTypeLibBrowser.Designer.cs">
+      <DependentUpon>FormTypeLibBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\ItemEntitiesGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visual\ItemEntitiesGrid.Designer.cs">
+      <DependentUpon>ItemEntitiesGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\ListViewItemComparer.cs" />
+    <Compile Include="COMComponentReaderSettings.cs" />
+    <Compile Include="Visual\MethodsGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visual\MethodsGrid.Designer.cs">
+      <DependentUpon>MethodsGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\ParametersGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visual\ParametersGrid.Designer.cs">
+      <DependentUpon>ParametersGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\PropertiesGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visual\PropertiesGrid.Designer.cs">
+      <DependentUpon>PropertiesGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\RefComponentsGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visual\RefComponentsGrid.Designer.cs">
+      <DependentUpon>RefComponentsGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\RefInterfacesGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visual\RefInterfacesGrid.Designer.cs">
+      <DependentUpon>RefInterfacesGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\XmlControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visual\XmlControl.Designer.cs">
+      <DependentUpon>XmlControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XPathConstants.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="TLI">
+      <Guid>{8B217740-717D-11CE-AB5B-D41203C10000}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LateBindingApi.CodeGenerator.Document.xsd" />
+    <EmbeddedResource Include="Visual\FormDependencies.resx">
+      <DependentUpon>FormDependencies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visual\FormTypeLibBrowser.resx">
+      <DependentUpon>FormTypeLibBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LateBindingApi.CodeGenerator.Document.xml" />
+    <EmbeddedResource Include="Visual\AttributesGrid.resx">
+      <DependentUpon>AttributesGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visual\ChildAttributesGrid.resx">
+      <DependentUpon>ChildAttributesGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visual\ComponentTab.resx">
+      <DependentUpon>ComponentTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visual\ComponentTreeView.resx">
+      <DependentUpon>ComponentTreeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visual\EnumGrid.resx">
+      <DependentUpon>EnumGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visual\EventsGrid.resx">
+      <DependentUpon>EventsGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visual\FormEdit.resx">
+      <DependentUpon>FormEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visual\FormResolveMethodConflict.resx">
+      <DependentUpon>FormResolveMethodConflict.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visual\ItemEntitiesGrid.resx">
+      <DependentUpon>ItemEntitiesGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visual\MethodsGrid.resx">
+      <DependentUpon>MethodsGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visual\ParametersGrid.resx">
+      <DependentUpon>ParametersGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visual\PropertiesGrid.resx">
+      <DependentUpon>PropertiesGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visual\RefComponentsGrid.resx">
+      <DependentUpon>RefComponentsGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visual\RefInterfacesGrid.resx">
+      <DependentUpon>RefInterfacesGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visual\XmlControl.resx">
+      <DependentUpon>XmlControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

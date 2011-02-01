@@ -1,0 +1,54 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="de">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Neue Seite 1</title>
+<style>
+<!--
+.med{font-size:medium;font-weight:normal;padding:0;margin:0}#res{padding-right:1em;margin:0 16px}#res{border:0px none;margin:0;padding-left:8px; padding-right:8px; padding-top:4px; padding-bottom:0}li{margin:0;padding:0}li{border:0px none;margin:0;padding:0}li{line-height:1.2}ol li{list-style:none}li.g{font-size:small;font-family:arial,sans-serif}li.g{margin-top:0;margin-bottom:14px}.s{max-width:42em}-->
+</style>
+</head>
+
+<body>
+
+<p><b>Frage</b>: Meine Programmiersprache unterstützt keine Properties mit 
+Parametern ?<br>
+<b>Antwort</b>: Die syntaktischen <em style="font-style: normal">Workarounds</em><em style="font-weight: bold; font-style: normal">
+</em>sind mit den Primary Interop Assemblies identisch.<br>
+Nutzen Sie ein Property mit Parameter als Methode via <font face="Courier New">
+get_Value(param)</font>.<br>
+<br>
+<br>
+<b>Frage</b>: Meine Sprache unterstützt keine optionalen Parameter ?<br>
+<b>Antwort</b>: Für optionale Parameter steht jeweils eine minimale und eine 
+maximale Funktionsüberladung<br>
+zur Verfügung. Für nicht verwendete Parameter nutzen Sie
+<font face="Courier New">System.Reflection.Missing.Value</font>.<br>
+<br>
+<br>
+<b>Frage</b>: Habe ich Zugriff auf die nativen COM Proxies?<br>
+<b>Antwort</b>: Ja, jedes Objekt implementiert das Property
+<font face="Courier New">UnderlyingObject.</font><br>
+<br>
+<br>
+<b>Frage</b>: Ich arbeite mit verschiedensprachigen Excel Versionen. Wie kann 
+ich die ThreadCulture ändern ?<br>
+<b>Antwort</b>: Ändern Sie die Kultur nach Wunsch: <font face="Courier New">
+LateBindingApi.Core.Settings.ThreadCulture </font><br>
+Die Vorseinstellung ist &quot;<font face="Courier New">en-us</font>&quot;<br>
+<br>
+<br>
+<b>Frage</b>: Kann ich Events nutzen ?<br>
+<b>Antwort</b>: Ja, ein Beispiel dazu finden Sie in Example08.csproj<br>
+<br>
+<br>
+<b>Frage</b>: Welchen <em style="font-style: normal">Workaround </em>gibt es für 
+den Variant Datentyp ?<br>
+<b>Antwort</b>: Lesen Sie dazu bitte COM Variant &amp; COMObject.htm</p>
+
+</body>
+
+</html>

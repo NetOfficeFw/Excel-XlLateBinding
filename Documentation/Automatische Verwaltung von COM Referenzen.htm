@@ -1,0 +1,205 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="de">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>COM Proxy Objekte in</title>
+</head>
+
+<body>
+
+<p align="justify"><font size="4">COM Proxy Objekte in .NET</font><br>
+<br>
+Sofern Sie bereits mit den Primary Interop Assemblies von Microsoft gearbeitet 
+haben wissen Sie das Excel auf einer COM Architektur basiert. Das bedeutet, sie 
+beziehen in ihrer Anwendung COM Proxy Objekte für deren Freigabe sie 
+verantwortlich sind. Betrachten sie dazu folgendes Codebeispiel:<br>
+&nbsp;</p>
+<p><font SIZE="2" COLOR="#008000">// Exemplarisches Vorgehen für das erstellen 
+eines neuen Workbook und durchlaufen seiner Worksheets mit den Primary Interop 
+Assemblies<br>
+</font><font SIZE="2" COLOR="#0000ff">using</font><font SIZE="2"> Office = 
+Microsoft.Office.Core;<br>
+</font><font SIZE="2" COLOR="#0000ff">using</font><font SIZE="2"> Excel = 
+Microsoft.Office.Interop.Excel;</font></p>
+<font SIZE="2">
+<p>Excel.</font><font SIZE="2" COLOR="#2b91af">Application</font><font SIZE="2"> 
+application = </font><font SIZE="2" COLOR="#0000ff">new</font><font SIZE="2"> 
+Microsoft.Office.Interop.Excel.</font><font SIZE="2" COLOR="#2b91af">Application</font><font SIZE="2">();<br>
+Excel.</font><font SIZE="2" COLOR="#2b91af">Workbooks</font><font SIZE="2"> 
+books = application.Workbooks;<br>
+Excel.</font><font SIZE="2" COLOR="#2b91af">Workbook</font><font SIZE="2"> book 
+= books.Add(</font><font SIZE="2" COLOR="#2b91af">Missing</font><font SIZE="2">.Value);<br>
+Excel.</font><font SIZE="2" COLOR="#2b91af">Worksheets</font><font SIZE="2"> 
+sheets = (Excel.</font><font SIZE="2" COLOR="#2b91af">Worksheets</font><font SIZE="2">)book.Worksheets;</p>
+<p></p>
+<p></font><font SIZE="2" COLOR="#0000ff">foreach</font><font SIZE="2"> (Excel.</font><font SIZE="2" COLOR="#2b91af">Worksheet</font><font SIZE="2"> 
+sheet </font><font SIZE="2" COLOR="#0000ff">in</font><font SIZE="2"> sheets)<br>
+{<br>
+&nbsp;&nbsp;&nbsp; </font><font SIZE="2" COLOR="#2b91af">Console</font><font SIZE="2">.WriteLine(sheet.Name);<br>
+&nbsp;&nbsp;&nbsp; </font><font SIZE="2" COLOR="#2b91af">Marshal</font><font SIZE="2">.ReleaseComObject(sheet);<br>
+}</p>
+</font>
+<p><font SIZE="2" COLOR="#2b91af">Marshal</font><font SIZE="2">.ReleaseComObject(sheets);<br>
+</font><font SIZE="2" COLOR="#2b91af">Marshal</font><font SIZE="2">.ReleaseComObject(book);<br>
+</font><font SIZE="2" COLOR="#2b91af">Marshal</font><font SIZE="2">.ReleaseComObject(books);</p>
+<p>application.Quit();<br>
+</font><font SIZE="2" COLOR="#2b91af">Marshal</font><font SIZE="2">.ReleaseComObject(application);</p>
+</font>
+<p align="justify"><br>
+Wie sie vermutlich wissen müssen Sie jedes COM Proxy Objekt durch die Funktion
+<font face="Courier New">ReleaseComObject</font> freigeben.<br>
+Sie signalisieren dem COM Server also Excel damit das Sie das Objekt nicht mehr 
+benötigen. Würden Sie das Objekt nicht freigeben hält der COM Server es 
+weiterhin im Speicher auch wenn Sie die Anwendung längst geschlossen haben und 
+Ihr Programm beendet ist. Sie hätten ein Memory Leak erzeugt und ihre erzeugte 
+Excel Instanz wäre immer noch als aktiver Prozess im Windows Task Manager zu 
+sehen.<br>
+<br>
+Aufgrund dieser Verhaltenweise ist es notwendig jedes benutze Objekt explizit zu 
+speichern um es nach der Benutzung wieder freigeben zu können. Wie sie im obigen 
+Codebeispiel sehen speichern wir die Worksheets Auflistung von book explizit in 
+einer lokalen Variable. Ein durchaus verbreitetes aber falsches Vorgehen ist die 
+Nutzung ohne explizite vorherige Speicherung. Betrachten sie dazu folgendes 
+Codebeispiel:<br>
+&nbsp;</p>
+<font SIZE="2" COLOR="#008000">
+<p>// Exemplarische falsche Vorgehensweise im Umgang mit Primary Interop 
+Assemblies<br>
+</font><font SIZE="2" COLOR="#0000ff">foreach</font><font SIZE="2"> (Excel.</font><font SIZE="2" COLOR="#2b91af">Worksheet</font><font SIZE="2"> 
+sheet </font><font SIZE="2" COLOR="#0000ff">in</font><font SIZE="2"> 
+book.Worksheets)<br>
+{<br>
+&nbsp;&nbsp;&nbsp; </font><font SIZE="2" COLOR="#2b91af">Console</font><font SIZE="2">.WriteLine(sheet.Name);<br>
+&nbsp;&nbsp;&nbsp; </font><font SIZE="2" COLOR="#2b91af">Marshal</font><font SIZE="2">.ReleaseComObject(sheet);<br>
+}</p>
+</font>
+<p><br>
+Durch das direkte Nutzen der Worksheets Auflistung haben wir keine Möglichkeit 
+dafür später die Funktion <font face="Courier New">ReleaseComObject</font> 
+aufzurufen. Der COM Server hält die Auflistung nun&nbsp; weiterhin&nbsp; im 
+Speicher bereit und wartet (vergebens) das Sie ihm die Freigabe signalisieren. 
+Verwenden Sie im Umgang mit den Primary Interop Assemblies nie COM Proxy Objekte 
+ohne sie explizit vorher zu speichern! Dadurch ergeben sich natürlich folgende 
+Nachteile:<br>
+<br>
+- Sie müssen jederzeit bedenken alle Objekte stets wieder freigeben zu müssen, 
+untypisch in einer managed Umgebung.<br>
+- Ihr Code wird durch die expliziten Speicherungen und Freigabender COM Proxy 
+Objekte schnell aufgebläht und unleserlich.<br>
+<br>
+<br>
+<font size="4">COM Proxy Objekte mit LateBindingApi.Excel</font><br>
+<br>
+Siehe dazu: Tutorial01.csproj<br>
+<br>
+Wenn Sie <font face="Courier New">LateBindingApi.Excel</font> nutzen haben Sie 
+die Wahl ob und wie Sie COM Proxy Objekte behandeln. Sie können jedes Objekt so 
+wie bei den Primary Interop Assemblies selbst freigeben, dazu benutzen sie die 
+Funktion <font face="Courier New">Dispose()</font> oder sie nutzen die 
+hierarchische Referenzverwaltung. Betrachten Sie dazu folgendes Codebeispiel:</p>
+<font SIZE="2" COLOR="#008000">
+<p>// Exemplarisches Vorgehen für das erstellen eines neuen Workbook und 
+durchlaufen seiner Worksheets mit LateBindingApi.Excel<br>
+</font><font SIZE="2" COLOR="#0000ff">using</font><font SIZE="2"> Office = 
+LateBindingApi.Office;<br>
+</font><font SIZE="2" COLOR="#0000ff">using</font><font SIZE="2"> Excel = 
+LateBindingApi.Excel;</p>
+<p>Excel.</font><font SIZE="2" COLOR="#2b91af">Application</font><font SIZE="2"> 
+application = </font><font SIZE="2" COLOR="#0000ff">new</font><font SIZE="2"> 
+Excel.</font><font SIZE="2" COLOR="#2b91af">Application</font><font SIZE="2">();<br>
+Excel.</font><font SIZE="2" COLOR="#2b91af">Workbook</font><font SIZE="2"> book 
+= application.Workbooks.Add();</p>
+</font><font SIZE="2" COLOR="#0000ff">
+<p>foreach</font><font SIZE="2"> (Excel.</font><font SIZE="2" COLOR="#2b91af">Worksheet</font><font SIZE="2"> 
+sheet </font><font SIZE="2" COLOR="#0000ff">in</font><font SIZE="2"> 
+book.Worksheets)<br>
+{<br>
+&nbsp;&nbsp;&nbsp; </font><font SIZE="2" COLOR="#2b91af">Console</font><font SIZE="2">.WriteLine(sheet.Name);<br>
+}</p>
+<p>application.Quit();<br>
+application.Dispose();</p>
+</font>
+<p>&nbsp;<br>
+Der Code erzeugt zuerst eine Instanz der Klasse <font face="Courier New">
+Excel.Application</font>. Alle weiteren Objekte werden über diese Instanz oder 
+untergeordnete Objekte der Instanz erstellt. Mit dem Aufruf von<font face="Courier New"> 
+Dispose()</font> in der letzten Codezeile wird die Instanz von
+<font face="Courier New">Excel.Application</font> und damit auch alle 
+untergeordneten Objekte freigegeben. Betrachten sie dazu ein weiteres 
+Codebeispiel:<br>
+&nbsp;</p>
+<font SIZE="2">
+<p></font><font SIZE="2" COLOR="#008000">// Exemplarisches Vorgehen für das 
+erstellen eines neuen Workbook und beschreiben seiner Worksheets mit 
+LateBindingApi.Excel<br>
+</font><font SIZE="2" COLOR="#0000ff">using</font><font SIZE="2"> Office = 
+LateBindingApi.Office;<br>
+</font><font SIZE="2" COLOR="#0000ff">using</font><font SIZE="2"> Excel = 
+LateBindingApi.Excel;</p>
+<p>Excel.</font><font SIZE="2" COLOR="#2b91af">Application</font><font SIZE="2"> 
+application = </font><font SIZE="2" COLOR="#0000ff">new</font><font SIZE="2"> 
+Excel.</font><font SIZE="2" COLOR="#2b91af">Application</font><font SIZE="2">();<br>
+Excel.</font><font SIZE="2" COLOR="#2b91af">Workbook</font><font SIZE="2"> book 
+= application.Workbooks.Add();</p>
+</font><font SIZE="2" COLOR="#0000ff">
+<p>foreach</font><font SIZE="2"> (Excel.</font><font SIZE="2" COLOR="#2b91af">Worksheet</font><font SIZE="2"> 
+sheet </font><font SIZE="2" COLOR="#0000ff">in</font><font SIZE="2"> 
+book.Worksheets)<br>
+{<br>
+&nbsp;&nbsp;&nbsp; </font><font SIZE="2" COLOR="#0000ff">for</font><font SIZE="2">(</font><font SIZE="2" COLOR="#0000ff">int</font><font SIZE="2"> 
+i=1;i&lt;=3;i++)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sheet.Cells[1,i].Value = </font>
+<font SIZE="2" COLOR="#a31515">&quot;exampleString&quot;</font><font SIZE="2">;<br>
+} <br>
+book.Dispose();<br>
+<br>
+application.Quit();<br>
+application.Dispose();</p>
+</font>
+<p><br>
+Durch das erstellen von <font SIZE="2">Excel.</font><font SIZE="2" COLOR="#2b91af">Workbook</font><font SIZE="2"> 
+book </font>und das anschliessende beschreiben der Worksheets entsteht in der 
+hierarchischen Referenzverwaltung folgender Objekt Baum:<br>
+<br>
+<font face="Courier New" size="2">- application<br>
+&nbsp;&nbsp;&nbsp; - Workbooks<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - book<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Worksheets<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+- sheet <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+- Range<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+- Range<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+- Range<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+- sheet <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+- Range<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+- Range<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+- Range<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+- sheet <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+- Range<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+- Range<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+- Range<br>
+</font><br>
+Mit dem Aufruf von book.Dispose() geben sie alle darunter verwalteten Objekte 
+wieder frei. Sie müssen keine Variablen zwischenspeichern und können<br>
+auch Enumeratoren direkt benutzen, dies hält ihren Code kleiner und 
+übersichtlicher.<br>
+<br>
+Siehe dazu: Tutorial01.csproj</p>
+
+</body>
+
+</html>

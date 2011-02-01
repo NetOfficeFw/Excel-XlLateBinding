@@ -1,0 +1,2 @@
+﻿this project is not an example
+its just a test project to debug and see already was okay  

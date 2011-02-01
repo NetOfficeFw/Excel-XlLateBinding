@@ -1,0 +1,86 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="de">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>LateBinding</title>
+</head>
+
+<body>
+
+<p align="justify"><font face="Courier New">LateBindingApi.Excel</font> ist eine 
+Bibliothek für den Zugriff auf Microsoft Excel aus einer managed .Net Umgebung.
+<font face="Times New Roman">Sie ist damit eine Alternative zu den Primary 
+Interop Assemblies von Microsoft.&nbsp; Wenn Sie bereits mit den Primary&nbsp; 
+Interop Assemblies gearbeitet haben müssen sie diesen Code nicht wegwerfen.&nbsp; 
+Beide Bibliotheken sind syntaktisch und semantisch nahezu identisch.</font>
+<font face="Courier New">LateBindingApi.Excel</font><font face="Arial"> </font>
+bietet jedoch einige elementare Vorteile:<br>
+<br>
+- Keine Beschränkung auf eine einzelne Excel Version oder .Net Version<br>
+- Automatische Verwaltung von COM Referenzen<br>
+- Volle Typensicherheit ohne anonyme Objekte<br>
+<br>
+<font face="Courier New">LateBindingApi.Excel</font> unterstützt die folgenden 
+Excel Versionen.<br>
+<br>
+<b>
+<font face="Courier New">Excel&nbsp; 9.0 - 2000 <br>
+Excel 10.0 - 2002<br>
+Excel 11.0 - 2003<br>
+Excel 12.0 - 2007<br>
+Excel 14.0 - 2010</font></b><br>
+<br>
+Darüber hinaus existieren keine weiteren Deployment Hürden. Sie müssen lediglich 
+die <font face="Courier New">LateBindingApi.Excel</font> Assemblies mit ihrer 
+Anwendung ausliefern. Besonders die sonst versionsbeschränkte Addin Entwicklung 
+wird dadurch enorm vereinfacht. Durch den Umstand das <font face="Courier New">
+LateBindingApi.Excel</font> alle neuzeitlichen Excel Versionen unterstützt, 
+bedarf es eines Mechanismus der zur Entwicklungszeit aufzeigt von welchen 
+Microsoft Excel Versionen die jeweiligen Funktionalitäten unterstützt werden. Aus 
+diesem Grund sind alle Entitäten in <font face="Courier New">
+LateBindingApi.Excel</font> mit dem <font face="Courier New">SupportByLibrary</font> 
+Attribute gekennzeichnet. Betrachten Sie dazu folgenden Codeausschnitt:<br>
+&nbsp;</p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="44%" id="AutoNumber1">
+  <tr>
+    <td width="100%" bordercolor="#C0C0C0">
+<font SIZE="2">[</font><font SIZE="2" COLOR="#2b91af">SupportByLibrary</font><font SIZE="2">(</font><font SIZE="2" COLOR="#a31515">&quot;XL10&quot;</font><font SIZE="2">,</font><font SIZE="2" COLOR="#a31515">&quot;XL11&quot;</font><font SIZE="2">,</font><font SIZE="2" COLOR="#a31515">&quot;XL12&quot;</font><font SIZE="2">,</font><font SIZE="2" COLOR="#a31515">&quot;XL14&quot;</font><font SIZE="2">,</font><font SIZE="2" COLOR="#a31515">&quot;XL9&quot;</font><font SIZE="2">)]<br>
+</font><font SIZE="2" COLOR="#0000ff">public</font><font SIZE="2"> </font>
+<font SIZE="2" COLOR="#0000ff">class</font><font SIZE="2"> </font>
+<font SIZE="2" COLOR="#2b91af">_Application</font><font SIZE="2"> : </font>
+<font SIZE="2" COLOR="#2b91af">COMObject<br>
+</font><font SIZE="2">{<br>
+&nbsp;&nbsp;&nbsp; [<font SIZE="2" COLOR="#2b91af">SupportByLibrary</font>(<font SIZE="2" COLOR="#a31515">&quot;XL10&quot;</font>,<font SIZE="2" COLOR="#a31515">&quot;XL11&quot;</font>,<font SIZE="2" COLOR="#a31515">&quot;XL12&quot;</font>,<font SIZE="2" COLOR="#a31515">&quot;XL14&quot;</font>,<font SIZE="2" COLOR="#a31515">&quot;XL9&quot;</font>)]<br>
+<font SIZE="2" COLOR="#0000ff">&nbsp;&nbsp;&nbsp; public</font>
+<font SIZE="2" COLOR="#0000ff">bool</font> Visible<br>
+<br>
+&nbsp;&nbsp;&nbsp; [<font SIZE="2" COLOR="#2b91af">SupportByLibrary</font>(<font SIZE="2" COLOR="#a31515">&quot;XL12&quot;</font>,<font SIZE="2" COLOR="#a31515">&quot;XL14&quot;</font>)]<font SIZE="2" COLOR="#0000ff"><br>
+&nbsp;&nbsp;&nbsp; public</font> <font SIZE="2" COLOR="#0000ff">bool</font> 
+EnableLivePreview<br>
+<br>
+&nbsp;&nbsp;&nbsp; [<font SIZE="2" COLOR="#2b91af">SupportByLibrary</font>(<font SIZE="2" COLOR="#a31515">&quot;XL14&quot;</font>)]<br>
+<font SIZE="2" COLOR="#0000ff">&nbsp;&nbsp;&nbsp; public</font>
+<font SIZE="2" COLOR="#0000ff">bool</font> PrintCommunication<br>
+    }</font></td>
+  </tr>
+</table>
+
+<p align="justify">
+<br>
+Sie können erkennen das die Klasse <font face="Courier New">_Application</font> 
+in allen unterstützten Excel Versionen vorhanden ist, ebenso ihr Property
+<font face="Courier New">Visible</font>. Das Property <font face="Courier New">
+EnableLivePreview</font> wird jedoch nur von den Excel Versionen 12 und 14 
+angeboten, das Property <font face="Courier New">PrintCommunication</font> nur 
+von Excel 14. Alle Klassen, Properties, Methoden, Enums, Enum Values sind auf 
+diese Art attributiert.<br>
+<br>
+Lesen Sie auch: Automatische Verwaltung von COM Referenzen.htm<br>
+Lesen Sie auch: COM Variant &amp; COMObject.htm</p>
+
+</body>
+
+</html>

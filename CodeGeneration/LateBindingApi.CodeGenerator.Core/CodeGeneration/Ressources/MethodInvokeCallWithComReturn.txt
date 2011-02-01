@@ -1,0 +1,5 @@
+﻿			object returnValue = Invoker.MethodReturn(this, "%Name%", %paramArray%);
+			if(null == returnValue)
+				return null;
+			%ReturnType% newClass = new %ReturnType%(this, returnValue);
+			return newClass;

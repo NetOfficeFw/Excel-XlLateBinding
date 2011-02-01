@@ -1,0 +1,11 @@
+COMAddinExample - Demonstrate a COMAddin and custom Ribbon UI
+Example01       - Background Colors and Borders for Cells
+Example02       - Font Attributes and Alignment for Cells
+Example03       - Using Numberformats
+Example04       - Shapes, WordArts, Pictures, 3D-Effects
+Example05       - Working with Charts
+Example06       - Dialogs in Excel
+Example07       - Attach VBA Code to a workbook
+Example08       - Using events
+Example09       - Customize UI without ribbons and recieve click events
+Example10       - A small sample report there use various typical excel features

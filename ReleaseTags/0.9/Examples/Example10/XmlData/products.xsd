@@ -1,0 +1,15 @@
+﻿<Schema xmlns="urn:schemas-microsoft-com:xml-data" xmlns:dt="urn:schemas-microsoft-com:datatypes">
+
+  <ElementType name="item" order="many" content="eltOnly" model="open">
+    <element type="iName"/>
+    <element type="iProductId"/>
+    <element type="iStorageCount"/>  
+    <element type="iManufactorAmount"/>
+  </ElementType>
+
+  <ElementType name="iName" content="textOnly"/>
+  <ElementType name="iProductId" content="textOnly" dt:type="ui4"/>
+  <ElementType name="iStorageCount" content="textOnly"/>
+  <ElementType name="iManufactorAmount" content="textOnly"/>
+  
+</Schema>

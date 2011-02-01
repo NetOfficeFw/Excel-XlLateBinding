@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E14B20E3-F4CF-43FF-AA7A-EF202A6962C1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LateBindingApi.VBIDE</RootNamespace>
+    <AssemblyName>LateBindingApi.VBIDE</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\FactoryInfo.cs" />
+    <Compile Include="Enums\VbextFileTypes.cs" />
+    <Compile Include="Enums\Vbext_WindowType.cs" />
+    <Compile Include="Enums\Vbext_WindowState.cs" />
+    <Compile Include="Enums\Vbext_ProjectType.cs" />
+    <Compile Include="Enums\Vbext_ProjectProtection.cs" />
+    <Compile Include="Enums\Vbext_VBAMode.cs" />
+    <Compile Include="Enums\Vbext_ComponentType.cs" />
+    <Compile Include="Enums\Vbext_ProcKind.cs" />
+    <Compile Include="Enums\Vbext_CodePaneview.cs" />
+    <Compile Include="Enums\Vbext_RefKind.cs" />
+    <Compile Include="_ReferencesEvents.cs" />
+    <Compile Include="_CommandBarControlEvents.cs" />
+    <Compile Include="Application.cs" />
+    <Compile Include="VBE.cs" />
+    <Compile Include="Window.cs" />
+    <Compile Include="_Windows_old.cs" />
+    <Compile Include="_Windows.cs" />
+    <Compile Include="_LinkedWindows.cs" />
+    <Compile Include="Events.cs" />
+    <Compile Include="_dispVBProjectsEvents.cs" />
+    <Compile Include="_dispVBComponentsEvents.cs" />
+    <Compile Include="_dispReferencesEvents.cs" />
+    <Compile Include="_dispCommandBarControlEvents.cs" />
+    <Compile Include="_ProjectTemplate.cs" />
+    <Compile Include="_VBProject_Old.cs" />
+    <Compile Include="_VBProject.cs" />
+    <Compile Include="_VBProjects_Old.cs" />
+    <Compile Include="_VBProjects.cs" />
+    <Compile Include="SelectedComponents.cs" />
+    <Compile Include="_Components.cs" />
+    <Compile Include="_VBComponents_Old.cs" />
+    <Compile Include="_VBComponents.cs" />
+    <Compile Include="_Component.cs" />
+    <Compile Include="_VBComponent_Old.cs" />
+    <Compile Include="_VBComponent.cs" />
+    <Compile Include="Property.cs" />
+    <Compile Include="_Properties.cs" />
+    <Compile Include="_AddIns.cs" />
+    <Compile Include="AddIn.cs" />
+    <Compile Include="_CodeModule.cs" />
+    <Compile Include="_CodePanes.cs" />
+    <Compile Include="_CodePane.cs" />
+    <Compile Include="_References.cs" />
+    <Compile Include="Reference.cs" />
+    <Compile Include="_dispReferences_Events.cs" />
+    <Compile Include="Windows.cs" />
+    <Compile Include="LinkedWindows.cs" />
+    <Compile Include="ReferencesEvents.cs" />
+    <Compile Include="CommandBarEvents.cs" />
+    <Compile Include="ProjectTemplate.cs" />
+    <Compile Include="VBProject.cs" />
+    <Compile Include="VBProjects.cs" />
+    <Compile Include="Components.cs" />
+    <Compile Include="VBComponents.cs" />
+    <Compile Include="Component.cs" />
+    <Compile Include="VBComponent.cs" />
+    <Compile Include="Properties.cs" />
+    <Compile Include="Addins.cs" />
+    <Compile Include="CodeModule.cs" />
+    <Compile Include="CodePanes.cs" />
+    <Compile Include="CodePane.cs" />
+    <Compile Include="References.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LateBindingApi.Office\LateBindingApi.Office.csproj">
+      <Project>{870BA85C-94A5-4D32-AA6A-3EFFEE2F9514}</Project>
+      <Name>LateBindingApi.Office</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LateBindingApi\LateBindingApi.csproj">
+      <Project>{65442327-D01F-4ECB-8C39-6D5C7622A80F}</Project>
+      <Name>LateBindingApi</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.     
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

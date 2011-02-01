@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://meinnamespace.meinefirma.de"
+           targetNamespace="http://meinnamespace.meinefirma.de"
+           elementFormDefault="qualified">
+
+  <xs:complexType name="Parameter">
+      <xs:sequence>
+        <xs:element name="IsComProxy" type="xs:boolean" />  <!-- param is a com object  -->
+        <xs:element name="IsExternal" type="xs:boolean" />  <!-- param type is defined in external library -->
+        <xs:element name="IsRef"      type="xs:boolean" />  <!-- param is given byRef -->
+        <xs:element name="IsArray"    type="xs:boolean" />  <!-- param is an array -->
+        <xs:element name="IsOptional" type="xs:boolean" />  <!-- param is an optional -->
+        <xs:element name="Name"       type="xs:string"  />  <!-- param name -->
+        <xs:element name="Type"       type="xs:string"  />  <!-- param type -->
+        <xs:element name="TypeKind"   type="xs:string"  />  <!-- param typekind -->
+        <xs:element name="Key"	      type="xs:string"  />  <!-- project key or external key there is the param type defined -->
+      </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="Parameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Parameter" type="Parameter" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+</xs:schema>

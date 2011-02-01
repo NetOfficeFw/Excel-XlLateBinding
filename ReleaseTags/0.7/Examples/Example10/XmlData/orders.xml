@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<items>
+  <item>
+    <iOrderDate>30.06.2010 10:00:00</iOrderDate>
+    <iOrderId>VD-1274-Order</iOrderId>
+    <iProductId>22476</iProductId>
+    <iOrderAmount>4,99</iOrderAmount>
+  </item>
+  <item>
+    <iOrderDate>30.06.2010 11:00:00</iOrderDate>
+    <iOrderId>VD-1241-Order</iOrderId>
+    <iProductId>12830</iProductId>
+    <iOrderAmount>15</iOrderAmount>
+  </item>
+  <item>
+    <iOrderDate>30.06.2010 12:00:00</iOrderDate>
+    <iOrderId>VD-4964-Order</iOrderId>
+    <iProductId>16602</iProductId>
+    <iOrderAmount>49,99</iOrderAmount>
+  </item>
+  <item>
+    <iOrderDate>30.06.2010 13:00:00</iOrderDate>
+    <iOrderId>VD-1164-Order</iOrderId>
+    <iProductId>12830</iProductId>
+    <iOrderAmount>15</iOrderAmount>
+  </item>
+  <item>
+    <iOrderDate>30.06.2010 14:00:00</iOrderDate>
+    <iOrderId>VD-6926-Order</iOrderId>
+    <iProductId>22521</iProductId>
+    <iOrderAmount>129</iOrderAmount>
+  </item>
+  <item>
+    <iOrderDate>30.06.2010 15:00:00</iOrderDate>
+    <iOrderId>VD-5637-Order</iOrderId>
+    <iProductId>22521</iProductId>
+    <iOrderAmount>129</iOrderAmount>
+  </item>
+  <item>
+    <iOrderDate>30.06.2010 16:00:00</iOrderDate>
+    <iOrderId>VD-2497-Order</iOrderId>
+    <iProductId>12830</iProductId>
+    <iOrderAmount>15</iOrderAmount>
+  </item>
+  <item>
+    <iOrderDate>30.06.2010 17:00:00</iOrderDate>
+    <iOrderId>VD-4521-Order</iOrderId>
+    <iProductId>52822</iProductId>
+    <iOrderAmount>49,99</iOrderAmount>
+  </item>
+  <item>
+    <iOrderDate>30.06.2010 18:00:00</iOrderDate>
+    <iOrderId>VD-2531-Order</iOrderId>
+    <iProductId>52822</iProductId>
+    <iOrderAmount>49,99</iOrderAmount>
+  </item>
+</items>

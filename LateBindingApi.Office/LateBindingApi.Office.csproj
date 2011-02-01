@@ -1,0 +1,518 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{870BA85C-94A5-4D32-AA6A-3EFFEE2F9514}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LateBindingApi.Office</RootNamespace>
+    <AssemblyName>LateBindingApi.Office</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>false</RegisterForComInterop>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\FactoryInfo.cs" />
+    <Compile Include="Enums\MsoLineDashStyle.cs" />
+    <Compile Include="Enums\MsoLineStyle.cs" />
+    <Compile Include="Enums\MsoArrowheadStyle.cs" />
+    <Compile Include="Enums\MsoArrowheadWidth.cs" />
+    <Compile Include="Enums\MsoArrowheadLength.cs" />
+    <Compile Include="Enums\MsoFillType.cs" />
+    <Compile Include="Enums\MsoGradientStyle.cs" />
+    <Compile Include="Enums\MsoGradientColorType.cs" />
+    <Compile Include="Enums\MsoTextureType.cs" />
+    <Compile Include="Enums\MsoPresetTexture.cs" />
+    <Compile Include="Enums\MsoPatternType.cs" />
+    <Compile Include="Enums\MsoPresetGradientType.cs" />
+    <Compile Include="Enums\MsoShadowType.cs" />
+    <Compile Include="Enums\MsoPresetTextEffect.cs" />
+    <Compile Include="Enums\MsoPresetTextEffectShape.cs" />
+    <Compile Include="Enums\MsoTextEffectAlignment.cs" />
+    <Compile Include="Enums\MsoPresetLightingDirection.cs" />
+    <Compile Include="Enums\MsoPresetLightingSoftness.cs" />
+    <Compile Include="Enums\MsoPresetMaterial.cs" />
+    <Compile Include="Enums\MsoPresetExtrusionDirection.cs" />
+    <Compile Include="Enums\MsoPresetThreeDFormat.cs" />
+    <Compile Include="Enums\MsoExtrusionColorType.cs" />
+    <Compile Include="Enums\MsoAlignCmd.cs" />
+    <Compile Include="Enums\MsoDistributeCmd.cs" />
+    <Compile Include="Enums\MsoConnectorType.cs" />
+    <Compile Include="Enums\MsoHorizontalAnchor.cs" />
+    <Compile Include="Enums\MsoVerticalAnchor.cs" />
+    <Compile Include="Enums\MsoOrientation.cs" />
+    <Compile Include="Enums\MsoZOrderCmd.cs" />
+    <Compile Include="Enums\MsoSegmentType.cs" />
+    <Compile Include="Enums\MsoEditingType.cs" />
+    <Compile Include="Enums\MsoAutoShapeType.cs" />
+    <Compile Include="Enums\MsoShapeType.cs" />
+    <Compile Include="Enums\MsoFlipCmd.cs" />
+    <Compile Include="Enums\MsoTriState.cs" />
+    <Compile Include="Enums\MsoColorType.cs" />
+    <Compile Include="Enums\MsoPictureColorType.cs" />
+    <Compile Include="Enums\MsoCalloutAngleType.cs" />
+    <Compile Include="Enums\MsoCalloutDropType.cs" />
+    <Compile Include="Enums\MsoCalloutType.cs" />
+    <Compile Include="Enums\MsoBlackWhiteMode.cs" />
+    <Compile Include="Enums\MsoMixedType.cs" />
+    <Compile Include="Enums\MsoTextOrientation.cs" />
+    <Compile Include="Enums\MsoScaleFrom.cs" />
+    <Compile Include="Enums\MsoBarPosition.cs" />
+    <Compile Include="Enums\MsoBarProtection.cs" />
+    <Compile Include="Enums\MsoBarType.cs" />
+    <Compile Include="Enums\MsoControlType.cs" />
+    <Compile Include="Enums\MsoButtonState.cs" />
+    <Compile Include="Enums\MsoControlOLEUsage.cs" />
+    <Compile Include="Enums\MsoButtonStyleHidden.cs" />
+    <Compile Include="Enums\MsoButtonStyle.cs" />
+    <Compile Include="Enums\MsoComboStyle.cs" />
+    <Compile Include="Enums\MsoOLEMenuGroup.cs" />
+    <Compile Include="Enums\MsoMenuAnimation.cs" />
+    <Compile Include="Enums\MsoBarRow.cs" />
+    <Compile Include="Enums\MsoCommandBarButtonHyperlinkType.cs" />
+    <Compile Include="Enums\MsoHyperlinkType.cs" />
+    <Compile Include="Enums\MsoExtraInfoMethod.cs" />
+    <Compile Include="Enums\MsoAnimationType.cs" />
+    <Compile Include="Enums\MsoButtonSetType.cs" />
+    <Compile Include="Enums\MsoIconType.cs" />
+    <Compile Include="Enums\MsoBalloonType.cs" />
+    <Compile Include="Enums\MsoModeType.cs" />
+    <Compile Include="Enums\MsoBalloonErrorType.cs" />
+    <Compile Include="Enums\MsoWizardActType.cs" />
+    <Compile Include="Enums\MsoWizardMsgType.cs" />
+    <Compile Include="Enums\MsoBalloonButtonType.cs" />
+    <Compile Include="Enums\DocProperties.cs" />
+    <Compile Include="Enums\MsoDocProperties.cs" />
+    <Compile Include="Enums\MsoAppLanguageID.cs" />
+    <Compile Include="Enums\MsoFarEastLineBreakLanguageID.cs" />
+    <Compile Include="Enums\MsoFeatureInstall.cs" />
+    <Compile Include="Enums\MsoScriptLanguage.cs" />
+    <Compile Include="Enums\MsoScriptLocation.cs" />
+    <Compile Include="Enums\MsoFileFindOptions.cs" />
+    <Compile Include="Enums\MsoFileFindView.cs" />
+    <Compile Include="Enums\MsoFileFindSortBy.cs" />
+    <Compile Include="Enums\MsoFileFindListBy.cs" />
+    <Compile Include="Enums\MsoLastModified.cs" />
+    <Compile Include="Enums\MsoSortBy.cs" />
+    <Compile Include="Enums\MsoSortOrder.cs" />
+    <Compile Include="Enums\MsoConnector.cs" />
+    <Compile Include="Enums\MsoCondition.cs" />
+    <Compile Include="Enums\MsoFileType.cs" />
+    <Compile Include="Enums\MsoLanguageID.cs" />
+    <Compile Include="Enums\MsoScreenSize.cs" />
+    <Compile Include="Enums\MsoCharacterSet.cs" />
+    <Compile Include="Enums\MsoEncoding.cs" />
+    <Compile Include="Enums\MsoHTMLProjectOpen.cs" />
+    <Compile Include="Enums\MsoHTMLProjectState.cs" />
+    <Compile Include="Enums\MsoFileDialogType.cs" />
+    <Compile Include="Enums\MsoFileDialogView.cs" />
+    <Compile Include="Enums\MsoAutomationSecurity.cs" />
+    <Compile Include="Enums\MailFormat.cs" />
+    <Compile Include="Enums\MsoAlertButtonType.cs" />
+    <Compile Include="Enums\MsoAlertIconType.cs" />
+    <Compile Include="Enums\MsoAlertDefaultType.cs" />
+    <Compile Include="Enums\MsoAlertCancelType.cs" />
+    <Compile Include="Enums\MsoSearchIn.cs" />
+    <Compile Include="Enums\MsoTargetBrowser.cs" />
+    <Compile Include="Enums\MsoOrgChartOrientation.cs" />
+    <Compile Include="Enums\MsoOrgChartLayoutType.cs" />
+    <Compile Include="Enums\MsoRelativeNodePosition.cs" />
+    <Compile Include="Enums\MsoDiagramType.cs" />
+    <Compile Include="Enums\MsoDiagramNodeType.cs" />
+    <Compile Include="Enums\MsoMoveRow.cs" />
+    <Compile Include="Enums\MsoFilterComparison.cs" />
+    <Compile Include="Enums\MsoFilterConjunction.cs" />
+    <Compile Include="Enums\MsoFileNewSection.cs" />
+    <Compile Include="Enums\MsoFileNewAction.cs" />
+    <Compile Include="Enums\MsoLanguageIDHidden.cs" />
+    <Compile Include="Enums\MsoSharedWorkspaceTaskStatus.cs" />
+    <Compile Include="Enums\MsoSharedWorkspaceTaskPriority.cs" />
+    <Compile Include="Enums\MsoSyncVersionType.cs" />
+    <Compile Include="Enums\MsoSyncConflictResolutionType.cs" />
+    <Compile Include="Enums\MsoSyncCompareType.cs" />
+    <Compile Include="Enums\MsoSyncAvailableType.cs" />
+    <Compile Include="Enums\MsoSyncEventType.cs" />
+    <Compile Include="Enums\MsoSyncErrorType.cs" />
+    <Compile Include="Enums\MsoSyncStatusType.cs" />
+    <Compile Include="Enums\MsoPermission.cs" />
+    <Compile Include="Enums\MsoMetaPropertyType.cs" />
+    <Compile Include="Enums\MsoSignatureSubset.cs" />
+    <Compile Include="Enums\MsoDocInspectorStatus.cs" />
+    <Compile Include="Enums\SignatureDetail.cs" />
+    <Compile Include="Enums\CertificateDetail.cs" />
+    <Compile Include="Enums\ContentVerificationResults.cs" />
+    <Compile Include="Enums\CertificateVerificationResults.cs" />
+    <Compile Include="Enums\SignatureLineImage.cs" />
+    <Compile Include="Enums\SignatureProviderDetail.cs" />
+    <Compile Include="Enums\SignatureType.cs" />
+    <Compile Include="Enums\MsoCustomXMLNodeType.cs" />
+    <Compile Include="Enums\MsoCustomXMLValidationErrorType.cs" />
+    <Compile Include="Enums\MsoTextureAlignment.cs" />
+    <Compile Include="Enums\MsoSoftEdgeType.cs" />
+    <Compile Include="Enums\MsoReflectionType.cs" />
+    <Compile Include="Enums\MsoPresetCamera.cs" />
+    <Compile Include="Enums\MsoBevelType.cs" />
+    <Compile Include="Enums\MsoLightRigType.cs" />
+    <Compile Include="Enums\MsoParagraphAlignment.cs" />
+    <Compile Include="Enums\MsoTextStrike.cs" />
+    <Compile Include="Enums\MsoTextCaps.cs" />
+    <Compile Include="Enums\MsoTextUnderlineType.cs" />
+    <Compile Include="Enums\MsoTextTabAlign.cs" />
+    <Compile Include="Enums\MsoTextCharWrap.cs" />
+    <Compile Include="Enums\MsoTextFontAlign.cs" />
+    <Compile Include="Enums\MsoAutoSize.cs" />
+    <Compile Include="Enums\MsoPathFormat.cs" />
+    <Compile Include="Enums\MsoWarpFormat.cs" />
+    <Compile Include="Enums\MsoTextChangeCase.cs" />
+    <Compile Include="Enums\MsoDateTimeFormat.cs" />
+    <Compile Include="Enums\MsoThemeColorSchemeIndex.cs" />
+    <Compile Include="Enums\MsoThemeColorIndex.cs" />
+    <Compile Include="Enums\MsoFontLanguageIndex.cs" />
+    <Compile Include="Enums\MsoShapeStyleIndex.cs" />
+    <Compile Include="Enums\MsoBackgroundStyleIndex.cs" />
+    <Compile Include="Enums\MsoCTPDockPosition.cs" />
+    <Compile Include="Enums\MsoCTPDockPositionRestrict.cs" />
+    <Compile Include="Enums\RibbonControlSize.cs" />
+    <Compile Include="Enums\MsoShadowStyle.cs" />
+    <Compile Include="Enums\MsoTextDirection.cs" />
+    <Compile Include="Enums\XlChartType.cs" />
+    <Compile Include="Enums\XlChartSplitType.cs" />
+    <Compile Include="Enums\XlSizeRepresents.cs" />
+    <Compile Include="Enums\XlAxisGroup.cs" />
+    <Compile Include="Enums\XlConstants.cs" />
+    <Compile Include="Enums\XlReadingOrder.cs" />
+    <Compile Include="Enums\XlBorderWeight.cs" />
+    <Compile Include="Enums\XlLegendPosition.cs" />
+    <Compile Include="Enums\XlUnderlineStyle.cs" />
+    <Compile Include="Enums\XlColorIndex.cs" />
+    <Compile Include="Enums\XlMarkerStyle.cs" />
+    <Compile Include="Enums\XlRowCol.cs" />
+    <Compile Include="Enums\XlDataLabelsType.cs" />
+    <Compile Include="Enums\XlErrorBarInclude.cs" />
+    <Compile Include="Enums\XlErrorBarType.cs" />
+    <Compile Include="Enums\XlErrorBarDirection.cs" />
+    <Compile Include="Enums\XlChartPictureType.cs" />
+    <Compile Include="Enums\XlChartItem.cs" />
+    <Compile Include="Enums\XlBarShape.cs" />
+    <Compile Include="Enums\XlEndStyleCap.cs" />
+    <Compile Include="Enums\XlTrendlineType.cs" />
+    <Compile Include="Enums\XlAxisType.cs" />
+    <Compile Include="Enums\XlAxisCrosses.cs" />
+    <Compile Include="Enums\XlTickMark.cs" />
+    <Compile Include="Enums\XlScaleType.cs" />
+    <Compile Include="Enums\XlTickLabelPosition.cs" />
+    <Compile Include="Enums\XlTimeUnit.cs" />
+    <Compile Include="Enums\XlCategoryType.cs" />
+    <Compile Include="Enums\XlDisplayUnit.cs" />
+    <Compile Include="Enums\XlChartOrientation.cs" />
+    <Compile Include="Enums\XlTickLabelOrientation.cs" />
+    <Compile Include="Enums\XlDisplayBlanksAs.cs" />
+    <Compile Include="Enums\XlDataLabelPosition.cs" />
+    <Compile Include="Enums\XlPivotFieldOrientation.cs" />
+    <Compile Include="Enums\XlHAlign.cs" />
+    <Compile Include="Enums\XlVAlign.cs" />
+    <Compile Include="Enums\XlChartElementPosition.cs" />
+    <Compile Include="Enums\MsoChartElementType.cs" />
+    <Compile Include="Enums\MsoBulletType.cs" />
+    <Compile Include="Enums\MsoNumberedBulletStyle.cs" />
+    <Compile Include="Enums\MsoTabStopType.cs" />
+    <Compile Include="Enums\MsoBaselineAlignment.cs" />
+    <Compile Include="Enums\EncryptionProviderDetail.cs" />
+    <Compile Include="Enums\EncryptionCipherMode.cs" />
+    <Compile Include="Enums\MsoClipboardFormat.cs" />
+    <Compile Include="Enums\MsoBlogCategorySupport.cs" />
+    <Compile Include="Enums\MsoBlogImageType.cs" />
+    <Compile Include="Enums\XlPieSliceLocation.cs" />
+    <Compile Include="Enums\XlPieSliceIndex.cs" />
+    <Compile Include="Enums\MsoSmartArtNodePosition.cs" />
+    <Compile Include="Enums\MsoSmartArtNodeType.cs" />
+    <Compile Include="Enums\MsoPickerField.cs" />
+    <Compile Include="Enums\MsoContactCardAddressType.cs" />
+    <Compile Include="Enums\MsoContactCardType.cs" />
+    <Compile Include="Enums\MsoPictureEffectType.cs" />
+    <Compile Include="Enums\MsoIodGroup.cs" />
+    <Compile Include="Enums\BackstageGroupStyle.cs" />
+    <Compile Include="Enums\MsoFileValidationMode.cs" />
+    <Compile Include="Enums\MsoContactCardStyle.cs" />
+    <Compile Include="ChartColorFormat.cs" />
+    <Compile Include="IAccessible.cs" />
+    <Compile Include="_IMsoDispObj.cs" />
+    <Compile Include="_IMsoOleAccDispObj.cs" />
+    <Compile Include="_CommandBars.cs" />
+    <Compile Include="CommandBar.cs" />
+    <Compile Include="CommandBarControls.cs" />
+    <Compile Include="CommandBarControl.cs" />
+    <Compile Include="_CommandBarButton.cs" />
+    <Compile Include="CommandBarPopup.cs" />
+    <Compile Include="_CommandBarComboBox.cs" />
+    <Compile Include="_CommandBarActiveX.cs" />
+    <Compile Include="Adjustments.cs" />
+    <Compile Include="CalloutFormat.cs" />
+    <Compile Include="ColorFormat.cs" />
+    <Compile Include="ConnectorFormat.cs" />
+    <Compile Include="FillFormat.cs" />
+    <Compile Include="FreeformBuilder.cs" />
+    <Compile Include="GroupShapes.cs" />
+    <Compile Include="LineFormat.cs" />
+    <Compile Include="ShapeNode.cs" />
+    <Compile Include="ShapeNodes.cs" />
+    <Compile Include="PictureFormat.cs" />
+    <Compile Include="ShadowFormat.cs" />
+    <Compile Include="Script.cs" />
+    <Compile Include="Scripts.cs" />
+    <Compile Include="Shape.cs" />
+    <Compile Include="ShapeRange.cs" />
+    <Compile Include="Shapes.cs" />
+    <Compile Include="TextEffectFormat.cs" />
+    <Compile Include="TextFrame.cs" />
+    <Compile Include="ThreeDFormat.cs" />
+    <Compile Include="IMsoDispCagNotifySink.cs" />
+    <Compile Include="Balloon.cs" />
+    <Compile Include="BalloonCheckboxes.cs" />
+    <Compile Include="BalloonCheckbox.cs" />
+    <Compile Include="BalloonLabels.cs" />
+    <Compile Include="BalloonLabel.cs" />
+    <Compile Include="AnswerWizardFiles.cs" />
+    <Compile Include="AnswerWizard.cs" />
+    <Compile Include="Assistant.cs" />
+    <Compile Include="IFoundFiles.cs" />
+    <Compile Include="IFind.cs" />
+    <Compile Include="FoundFiles.cs" />
+    <Compile Include="PropertyTest.cs" />
+    <Compile Include="PropertyTests.cs" />
+    <Compile Include="FileSearch.cs" />
+    <Compile Include="COMAddIn.cs" />
+    <Compile Include="COMAddIns.cs" />
+    <Compile Include="LanguageSettings.cs" />
+    <Compile Include="ICommandBarsEvents.cs" />
+    <Compile Include="_CommandBarsEvents.cs" />
+    <Compile Include="ICommandBarComboBoxEvents.cs" />
+    <Compile Include="_CommandBarComboBoxEvents.cs" />
+    <Compile Include="ICommandBarButtonEvents.cs" />
+    <Compile Include="_CommandBarButtonEvents.cs" />
+    <Compile Include="WebPageFont.cs" />
+    <Compile Include="WebPageFonts.cs" />
+    <Compile Include="HTMLProjectItem.cs" />
+    <Compile Include="HTMLProjectItems.cs" />
+    <Compile Include="HTMLProject.cs" />
+    <Compile Include="MsoDebugOptions.cs" />
+    <Compile Include="FileDialogSelectedItems.cs" />
+    <Compile Include="FileDialogFilter.cs" />
+    <Compile Include="FileDialogFilters.cs" />
+    <Compile Include="FileDialog.cs" />
+    <Compile Include="SignatureSet.cs" />
+    <Compile Include="Signature.cs" />
+    <Compile Include="IMsoEnvelopeVB.cs" />
+    <Compile Include="IMsoEnvelopeVBEvents.cs" />
+    <Compile Include="FileTypes.cs" />
+    <Compile Include="SearchFolders.cs" />
+    <Compile Include="ScopeFolders.cs" />
+    <Compile Include="ScopeFolder.cs" />
+    <Compile Include="SearchScope.cs" />
+    <Compile Include="SearchScopes.cs" />
+    <Compile Include="IMsoDiagram.cs" />
+    <Compile Include="DiagramNodes.cs" />
+    <Compile Include="DiagramNodeChildren.cs" />
+    <Compile Include="DiagramNode.cs" />
+    <Compile Include="CanvasShapes.cs" />
+    <Compile Include="OfficeDataSourceObject.cs" />
+    <Compile Include="ODSOColumn.cs" />
+    <Compile Include="ODSOColumns.cs" />
+    <Compile Include="ODSOFilter.cs" />
+    <Compile Include="ODSOFilters.cs" />
+    <Compile Include="NewFile.cs" />
+    <Compile Include="WebComponent.cs" />
+    <Compile Include="WebComponentWindowExternal.cs" />
+    <Compile Include="WebComponentFormat.cs" />
+    <Compile Include="ILicWizExternal.cs" />
+    <Compile Include="ILicValidator.cs" />
+    <Compile Include="ILicAgent.cs" />
+    <Compile Include="IMsoEServicesDialog.cs" />
+    <Compile Include="WebComponentProperties.cs" />
+    <Compile Include="SmartDocument.cs" />
+    <Compile Include="SharedWorkspaceMember.cs" />
+    <Compile Include="SharedWorkspaceMembers.cs" />
+    <Compile Include="SharedWorkspaceTask.cs" />
+    <Compile Include="SharedWorkspaceTasks.cs" />
+    <Compile Include="SharedWorkspaceFile.cs" />
+    <Compile Include="SharedWorkspaceFiles.cs" />
+    <Compile Include="SharedWorkspaceFolder.cs" />
+    <Compile Include="SharedWorkspaceFolders.cs" />
+    <Compile Include="SharedWorkspaceLink.cs" />
+    <Compile Include="SharedWorkspaceLinks.cs" />
+    <Compile Include="SharedWorkspace.cs" />
+    <Compile Include="Sync.cs" />
+    <Compile Include="DocumentLibraryVersion.cs" />
+    <Compile Include="DocumentLibraryVersions.cs" />
+    <Compile Include="UserPermission.cs" />
+    <Compile Include="Permission.cs" />
+    <Compile Include="MsoDebugOptions_UTRunResult.cs" />
+    <Compile Include="MsoDebugOptions_UT.cs" />
+    <Compile Include="MsoDebugOptions_UTs.cs" />
+    <Compile Include="MsoDebugOptions_UTManager.cs" />
+    <Compile Include="MetaProperty.cs" />
+    <Compile Include="MetaProperties.cs" />
+    <Compile Include="PolicyItem.cs" />
+    <Compile Include="ServerPolicy.cs" />
+    <Compile Include="DocumentInspector.cs" />
+    <Compile Include="DocumentInspectors.cs" />
+    <Compile Include="WorkflowTask.cs" />
+    <Compile Include="WorkflowTasks.cs" />
+    <Compile Include="WorkflowTemplate.cs" />
+    <Compile Include="WorkflowTemplates.cs" />
+    <Compile Include="SignatureSetup.cs" />
+    <Compile Include="SignatureInfo.cs" />
+    <Compile Include="SignatureProvider.cs" />
+    <Compile Include="CustomXMLPrefixMapping.cs" />
+    <Compile Include="CustomXMLPrefixMappings.cs" />
+    <Compile Include="CustomXMLSchema.cs" />
+    <Compile Include="_CustomXMLSchemaCollection.cs" />
+    <Compile Include="CustomXMLNodes.cs" />
+    <Compile Include="CustomXMLNode.cs" />
+    <Compile Include="CustomXMLValidationError.cs" />
+    <Compile Include="CustomXMLValidationErrors.cs" />
+    <Compile Include="_CustomXMLPart.cs" />
+    <Compile Include="ICustomXMLPartEvents.cs" />
+    <Compile Include="_CustomXMLPartEvents.cs" />
+    <Compile Include="_CustomXMLParts.cs" />
+    <Compile Include="ICustomXMLPartsEvents.cs" />
+    <Compile Include="_CustomXMLPartsEvents.cs" />
+    <Compile Include="GradientStop.cs" />
+    <Compile Include="GradientStops.cs" />
+    <Compile Include="SoftEdgeFormat.cs" />
+    <Compile Include="GlowFormat.cs" />
+    <Compile Include="ReflectionFormat.cs" />
+    <Compile Include="ParagraphFormat2.cs" />
+    <Compile Include="Font2.cs" />
+    <Compile Include="TextColumn2.cs" />
+    <Compile Include="TextRange2.cs" />
+    <Compile Include="TextFrame2.cs" />
+    <Compile Include="ThemeColor.cs" />
+    <Compile Include="ThemeColorScheme.cs" />
+    <Compile Include="ThemeFont.cs" />
+    <Compile Include="ThemeFonts.cs" />
+    <Compile Include="ThemeFontScheme.cs" />
+    <Compile Include="ThemeEffectScheme.cs" />
+    <Compile Include="OfficeTheme.cs" />
+    <Compile Include="_CustomTaskPane.cs" />
+    <Compile Include="CustomTaskPaneEvents.cs" />
+    <Compile Include="_CustomTaskPaneEvents.cs" />
+    <Compile Include="ICTPFactory.cs" />
+    <Compile Include="ICustomTaskPaneConsumer.cs" />
+    <Compile Include="IAssistance.cs" />
+    <Compile Include="IMsoChartData.cs" />
+    <Compile Include="IMsoChart.cs" />
+    <Compile Include="IMsoCorners.cs" />
+    <Compile Include="IMsoLegend.cs" />
+    <Compile Include="IMsoBorder.cs" />
+    <Compile Include="IMsoWalls.cs" />
+    <Compile Include="IMsoFloor.cs" />
+    <Compile Include="IMsoPlotArea.cs" />
+    <Compile Include="IMsoChartArea.cs" />
+    <Compile Include="IMsoSeriesLines.cs" />
+    <Compile Include="IMsoLeaderLines.cs" />
+    <Compile Include="GridLines.cs" />
+    <Compile Include="IMsoUpBars.cs" />
+    <Compile Include="IMsoDownBars.cs" />
+    <Compile Include="IMsoInterior.cs" />
+    <Compile Include="ChartFillFormat.cs" />
+    <Compile Include="ChartFont.cs" />
+    <Compile Include="Axes.cs" />
+    <Compile Include="IMsoAxis.cs" />
+    <Compile Include="IMsoDataTable.cs" />
+    <Compile Include="IMsoChartTitle.cs" />
+    <Compile Include="IMsoAxisTitle.cs" />
+    <Compile Include="IMsoDisplayUnitLabel.cs" />
+    <Compile Include="IMsoTickLabels.cs" />
+    <Compile Include="IMsoHyperlinks.cs" />
+    <Compile Include="IMsoDropLines.cs" />
+    <Compile Include="IMsoHiLoLines.cs" />
+    <Compile Include="IMsoChartGroup.cs" />
+    <Compile Include="ChartGroups.cs" />
+    <Compile Include="IMsoCharacters.cs" />
+    <Compile Include="IMsoChartFormat.cs" />
+    <Compile Include="BulletFormat2.cs" />
+    <Compile Include="TabStops2.cs" />
+    <Compile Include="TabStop2.cs" />
+    <Compile Include="Ruler2.cs" />
+    <Compile Include="RulerLevels2.cs" />
+    <Compile Include="RulerLevel2.cs" />
+    <Compile Include="EncryptionProvider.cs" />
+    <Compile Include="IBlogExtensibility.cs" />
+    <Compile Include="IBlogPictureExtensibility.cs" />
+    <Compile Include="SmartArt.cs" />
+    <Compile Include="SmartArtNodes.cs" />
+    <Compile Include="SmartArtNode.cs" />
+    <Compile Include="SmartArtLayouts.cs" />
+    <Compile Include="SmartArtLayout.cs" />
+    <Compile Include="SmartArtQuickStyles.cs" />
+    <Compile Include="SmartArtQuickStyle.cs" />
+    <Compile Include="SmartArtColors.cs" />
+    <Compile Include="SmartArtColor.cs" />
+    <Compile Include="PickerField.cs" />
+    <Compile Include="PickerFields.cs" />
+    <Compile Include="PickerProperty.cs" />
+    <Compile Include="PickerProperties.cs" />
+    <Compile Include="PickerResult.cs" />
+    <Compile Include="PickerResults.cs" />
+    <Compile Include="PickerDialog.cs" />
+    <Compile Include="IMsoContactCard.cs" />
+    <Compile Include="EffectParameter.cs" />
+    <Compile Include="EffectParameters.cs" />
+    <Compile Include="PictureEffect.cs" />
+    <Compile Include="PictureEffects.cs" />
+    <Compile Include="Crop.cs" />
+    <Compile Include="ContactCard.cs" />
+    <Compile Include="CommandBars.cs" />
+    <Compile Include="CommandBarComboBox.cs" />
+    <Compile Include="CommandBarButton.cs" />
+    <Compile Include="MsoEnvelope.cs" />
+    <Compile Include="CustomXMLSchemaCollection.cs" />
+    <Compile Include="CustomXMLPart.cs" />
+    <Compile Include="CustomXMLParts.cs" />
+    <Compile Include="CustomTaskPane.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LateBindingApi.stdole\LateBindingApi.stdole.csproj">
+      <Project>{2E15B8DA-A92D-4F8B-866C-7FDAB9167983}</Project>
+      <Name>LateBindingApi.stdole</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LateBindingApi\LateBindingApi.csproj">
+      <Project>{65442327-D01F-4ECB-8C39-6D5C7622A80F}</Project>
+      <Name>LateBindingApi</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.     
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

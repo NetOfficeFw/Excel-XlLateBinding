@@ -1,0 +1,80 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="de">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>LateBindingApi</title>
+</head>
+
+<body>
+
+<p align="justify">Siehe auch: Tutorial03.csproj<br>
+<br>
+<font face="Courier New">COMVariant</font> bildet einen Ersatz für den in COM 
+erlaubten Datentyp Variant der zur Laufzeit einen beliebigen Typ annehmen kann. 
+Prüfen Sie mit <font face="Courier New">COMVariant.TypeName</font> auf den Namen 
+des Typs und mit <font face="Courier New">COMVariant.IsCOMProxy</font> ob es 
+sich um einen COMProxy handelt.n diesem Fall können Sie den Typ zur Laufzeit 
+casten sowie bei den Microsoft Interop Assemblies. Betrachten Sie dazu folgendes 
+Codebeispiel aus Tutorial03.csproj:<br>
+&nbsp;</p>
+<font SIZE="2">
+<p></font><font SIZE="2" COLOR="#008000">/* the property Selection from 
+Excel.Application is defined as COMVariant */<br>
+/* It can have multiple types at runtime what is currently selected, a worksheet, 
+a range, a window or other*/</p>
+</font><font SIZE="2">
+<p></font><font SIZE="2" COLOR="#2b91af">COMVariant</font><font SIZE="2"> 
+myVariant = application.Selection;<br>
+</font><font SIZE="2" COLOR="#0000ff">switch</font><font SIZE="2"> (myVariant.TypeName)<br>
+{<br>
+&nbsp;&nbsp;&nbsp; </font><font SIZE="2" COLOR="#0000ff">case</font><font SIZE="2">
+</font><font SIZE="2" COLOR="#a31515">&quot;Worksheet&quot;</font><font SIZE="2">:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Excel.</font><font SIZE="2" COLOR="#2b91af">Worksheet</font><font SIZE="2"> 
+sheet = (Excel.</font><font SIZE="2" COLOR="#2b91af">Worksheet</font><font SIZE="2">)myVariant;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+<font SIZE="2" COLOR="#0000ff">break</font><font SIZE="2">;<br>
+</font><font SIZE="2" COLOR="#0000ff">&nbsp;&nbsp;&nbsp; case</font><font SIZE="2">
+</font><font SIZE="2" COLOR="#a31515">&quot;Range&quot;</font><font SIZE="2">:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Excel.</font><font SIZE="2" COLOR="#2b91af">Range</font><font SIZE="2"> 
+range = (Excel.</font><font SIZE="2" COLOR="#2b91af">Range</font><font SIZE="2">)myVariant;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+<font SIZE="2" COLOR="#0000ff">break</font><font SIZE="2">;<br>
+} </font></p>
+<p align="justify"><br>
+In Tutorial03.csproj sehen sie ebenfalls wie sie mit scalaren Properties umgehen 
+die als Variant definiert sind.<br>
+<br>
+<font face="Courier New">COMObject</font> steht für einen COMProxy dessen Typ 
+zur Kompilierzeit nicht bekannt ist und hat damit Ähnlichkeit zu
+<font face="Courier New">COMVariant</font>, jedoch handelt es sich in jedem Fall 
+um einen COMProxy und nicht um einen scalaren Typ wie bool oder int. Betrachten 
+Sie dazu folgendes Codebeispiel:<br>
+<br>
+<font SIZE="2" COLOR="#0000ff">foreach</font><font SIZE="2"> (Office.</font><font SIZE="2" COLOR="#2b91af">COMAddIn</font><font SIZE="2"> 
+item </font><font SIZE="2" COLOR="#0000ff">in</font><font SIZE="2"> 
+application.COMAddIns)<br>
+{<br>
+</font><font SIZE="2" COLOR="#008000">&nbsp;&nbsp;&nbsp; /* COMAddIn.Application 
+is defined as COMObject*/<br>
+</font><font SIZE="2">&nbsp;&nbsp;&nbsp; Excel.</font><font SIZE="2" COLOR="#2b91af">Application</font><font SIZE="2"> 
+parentApplication = (Excel.</font><font SIZE="2" COLOR="#2b91af">Application</font><font SIZE="2">)item.Application;<br>
+}</p>
+</font>
+<p><u><b>Wichtiger Hinweis:<br>
+<br>
+</b></u>Sie müssen die Object Factory der Core-Library von
+<font face="Courier New">LateBindingApi.Excel i</font>nitialisieren bevor Sie 
+COMObject und COMVariant Typen nutzen können. Sie benötigen dazu lediglich den 
+folgenden Aufruf:<br>
+<font SIZE="2" COLOR="#008000">/*<br>
+* Initialize Api COMObject &amp; COMVariant Support<br>
+*/<br>
+</font><font SIZE="2">LateBindingApi.Core.</font><font SIZE="2" COLOR="#2b91af">Factory</font><font SIZE="2">.Initialize();</p>
+</font>
+
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+﻿<Schema xmlns="urn:schemas-microsoft-com:xml-data" xmlns:dt="urn:schemas-microsoft-com:datatypes">
+  
+  <ElementType name="item" order="many" content="eltOnly" model="open">
+   <element type="iOrderId"/>
+   <element type="iProductId"/>
+   <element type="iOrderAmount"/>
+   <element type="iOrderDate"/>
+  </ElementType>
+  
+  <ElementType name="iOrderId" content="textOnly"/>
+  <ElementType name="iProductId" content="textOnly"/>
+  <ElementType name="iOrderAmount" content="textOnly"/>
+  <ElementType name="iOrderDate" content="textOnly"/>
+
+</Schema>
